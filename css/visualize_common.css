@@ -1,0 +1,111 @@
+@import url(https://fonts.googleapis.com/earlyaccess/notosansjapanese.css);
+
+body{
+    margin: 0;
+    font-family: "Noto Sans Japanese", "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ", Meiryo, "ＭＳ Ｐゴシック", sans-serif;
+    background: #f8fbfc;
+}
+
+#container{
+    max-width: 1000px;
+    margin: 0 auto;
+    background: #fff;
+    padding: 2em;
+    border-left: solid 0.1em #f0f0f0;
+    border-right: solid 0.1em #f0f0f0;
+}
+
+h1{
+    border: solid 0.1em #333;
+    font-size: 2em;
+
+    padding: 0.5em;
+
+    text-align: center;
+}
+
+
+h2{
+    border-bottom: solid 1px #ccc;
+    color: #333;
+    padding: 0.1em 0.5em;
+    font-size: 1.5em;
+}
+
+h3{
+    padding: 0 0.2em;
+    font-size: 1.2em;
+}
+
+footer{
+    text-align: center;
+}
+
+span.emph{
+    font-weight: bold;
+}
+
+p{
+    padding: 0.1em;
+    margin: 0.1em;
+}
+
+a{
+    color: #d47092;
+    padding: 0.2em;
+    transition: 0.1s;
+    
+    text-decoration: none;
+    font-weight: bold;
+}
+
+a:hover{
+    color: #333;
+    background: #efefef;
+}
+
+ul{
+    padding: 0;
+}
+
+li{
+    list-style: none;
+}
+
+li img{
+    max-width: 500px;
+    transition: 0.15s;
+    cursor: pointer;
+}
+
+@media screen and (min-width: 769px){
+    li img{
+        border: solid 2px #fff;
+    }
+
+    li img:hover{
+        border: solid 2px #aeaeae;
+    }
+
+}
+
+
+/* for smartphone */
+@media screen and (max-width: 768px){
+    #container{
+        padding: 0.5em;
+        font-size: small;
+    }
+
+    h1{
+        font-size: 1.5em;
+    }
+
+    h3{
+        font-size: 1em;
+    }
+
+    li img{
+        max-width: 99%;
+    }
+}

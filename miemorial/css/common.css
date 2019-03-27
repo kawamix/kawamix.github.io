@@ -590,7 +590,7 @@ p .next-allow{
     
         text-align: center;
         padding: 0.2em 0.5em;
-        margin: 10% 0;
+        margin: 1em 0;
         font-size: 1.5em;
         width: 100%;
     
@@ -674,14 +674,14 @@ p .next-allow{
         color: #FFFFFF;
         font-size: 1.2em;
         text-shadow: 
-        #FF6699 3px 0px,  #FF6699 -3px 0px,
-        #FF6699 0px -3px, #FF6699 0px 3px,
-        #FF6699 3px 3px , #FF6699 -3px 3px,
-        #FF6699 3px -3px, #FF6699 -3px -3px,
-        #FF6699 1px 3px,  #FF6699 -1px 3px,
-        #FF6699 1px -3px, #FF6699 -1px -3px,
-        #FF6699 3px 1px,  #FF6699 -3px 1px,
-        #FF6699 3px -1px, #FF6699 -3px -1px;
+        #FF6699 2px 0px,  #FF6699 -2px 0px,
+        #FF6699 0px -2px, #FF6699 0px 2px,
+        #FF6699 2px 2px , #FF6699 -2px 2px,
+        #FF6699 2px -2px, #FF6699 -2px -2px,
+        #FF6699 1px 2px,  #FF6699 -1px 2px,
+        #FF6699 1px -2px, #FF6699 -1px -2px,
+        #FF6699 2px 1px,  #FF6699 -2px 1px,
+        #FF6699 2px -1px, #FF6699 -2px -1px;
     
         z-index: 1;
     }

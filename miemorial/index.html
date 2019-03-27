@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta property="og:title" content="恋愛シミュレーションゲーム「ときめきミエモリアル」" />
+    <meta property="og:image" content="https://kawamix.github.io/miemorial/img/logo.jpg" />
+    <meta property="og:description" content="三重県が舞台の恋愛シミュレーションゲーム「ときめきミエモリアル」です。あなたの三重県の知識はどれくらい？三重県の知識を生かして、幼馴染を攻略しましょう。"
+    />
+    <meta property="og:url" content="https://kawamix.github.io/miemorial/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="kawamix.github.io" />
+    <meta property="twitter:title" content="恋愛シミュレーションゲーム「ときめきミエモリアル」" />
+    <meta property="twitter:image" content="https://kawamix.github.io/miemorial/img/logo.jpg" />
+
+    <meta property="twitter:description" content="三重県が舞台の恋愛シミュレーションゲーム「ときめきミエモリアル」です。あなたの三重県の知識はどれくらい？三重県の知識を生かして、幼馴染を攻略しましょう。"
+    />
+    <meta property="twitter:url" content="http://kawamix.github.io/miemorial/" />
+
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:domain" content="http://kawamix.github.io/" />
+    <meta property="twitter:site" content="@kawamix01" />
+
+    <title>恋愛シミュレーションゲーム「ときめきミエモリアル」</title>
+    <script type="text/javascript" src="./script/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript" src="./script/scenario.js"></script>
+    <script type="text/javascript" src="./script/main.js"></script>
+    <link rel="stylesheet" href="./css/common.css" />
+    <link href="https://fonts.googleapis.com/css?family=Sawarabi+Mincho" rel="stylesheet">
+</head>
+
+<body>
+    <div id="loading">
+        <div class="loading"></div>
+    </div>
+    <div id="container">
+        <div id="game_window">
+            <div id="title">
+                <h1>ときめきミエモリアル</h1>
+                <div id="game-start">TOUCH START</div>
+            </div>
+            <div id="blackout"></div>
+            <div id="modal-overlay-white">
+                <div id="interaction">
+                    <p>
+                        <span>三重県のことを知る人ほど有利</span>な
+                        <br>恋愛シミュレーションゲームです。
+                        <br>
+                        <br> あなたは
+                        <span>三重県民の幼馴染</span>を落とせますか？
+                    </p>
+                    <div class="button next-button">進む</div>
+                </div>
+                <div id="name-display">
+                    <p>あなたの名前を
+                        <br>
+                        <span>ひらがな/カタカナ6文字以内</span>で
+                        <br> 入力してください。
+                    </p>
+                    <input type="text" placeholder="なまえ" size="6" maxlength="6">
+                    <div id="name-error">
+                        ひらがな/カタカナ6文字以内に
+                        <br> してください。
+                    </div>
+                    <div class="button name-ok-button">OK</div>
+                </div>
+            </div>
+            <div id="modal-badend">
+                <h2>BAD END</h2>
+                <p class="reason">〇〇は三重県の知識が乏しい故、鬱になり死んでしまった。</p>
+                <p class="note">※4月1日はエイプリルフールです。</p>
+                <div id="operate">
+                    <a class="button share-twitter" href="https://twitter.com/" target="_blank">結果をTwitterでシェア</a>
+                    <div id="replay">
+                        <div class="button back-button replay">直前から</div>
+                        <div class="button back-button to-top">最初から</div>
+                    </div>
+                </div>
+            </div>
+            <div id="modal-goodend">
+                <h2>HAPPY END</h2>
+                <p>あなたの三重県愛がよく伝わりました。
+                    <br>
+                    <span>4月1日はエイプリルフールです。</span>
+                </p>
+                <div id="operate">
+                    <a class="button share-twitter" href="https://twitter.com/" target="_blank">結果をTwitterでシェア</a>
+                    <div id="replay">
+                        <div class="button back-button to-top">最初から</div>
+                    </div>
+                </div>
+                <p>制作:
+                    <br>
+                    <a href="https://twitter.com/kawamix01" target="_blank">@kawamix01</a>
+                </p>
+            </div>
+            <div id="modal-dialogue">
+                <p>
+                    「信じられないんだけど」
+                    <br> 幼馴染は言った。
+                    <br> 激高した彼女の目からは殺意が注がれていた。
+                    <br>
+                    <br> 俺は何も言えず、彼女はひとりで帰っていった。
+                    <br>
+                    <br> 後日。
+                    <br> 俺は彼女どころか、クラスメイトや家族の誰からも 話しかけられず、無視をされる日々を送ることになった。
+                    <span class="next-allow">次へ</span>
+                </p>
+            </div>
+            <div id="modal-overlay">
+                <div id="supplement">
+                    <h2>
+                        天むすは
+                        <br> 三重県発祥の食べ物
+                    </h2>
+                    <p>
+                        「名古屋めし」として有名な天むすですが、 その発祥は三重県津市と言われています。
+                    </p>
+                    <div class="close-button button">
+                        × 閉じる
+                    </div>
+                </div>
+            </div>
+            <div id="option">
+                <ul>
+                    <li class="button option-button">
+                        モクモクファーム
+                    </li>
+                    <li class="button option-button">
+                        ブルーメの丘
+                    </li>
+                    <li class="button option-button">
+                        デンパーク
+                    </li>
+                </ul>
+            </div>
+            <div class="silhouette">
+                <span>幼馴染</span>
+            </div>
+            <div id="dialogue">
+                <span id="speaker">
+                    幼馴染
+                </span>
+                <p>
+                    〇〇〇くん！久しぶり。
+                    <br> 背も随分と高くなっちゃって、別人みたい。
+                    <span class="next-allow">次へ</span>
+                </p>
+            </div>
+
+        </div>
+
+    </div>
+</body>
+
+</html>

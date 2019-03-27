@@ -63,6 +63,13 @@ a{
     color: #FFFFFF;
 }
 
+#title{
+    position: absolute;
+    top:0;
+    left:0;
+    width: 100%;
+}
+
 #blackout{
     position: fixed;
     top: 0;
@@ -368,13 +375,6 @@ p .next-allow{
         max-height: 800px;
     }
 
-    #title{
-        position: absolute;
-        top:0;
-        left:0;
-        width: 100%;
-    }
-
     h1{
         padding-top: 500px;
         width: 700px;
@@ -562,7 +562,7 @@ p .next-allow{
 
     h1{
         padding-top: 100%;
-        max-width: 90%;
+        width: 100%;
     }
 
     #game-start{
@@ -590,7 +590,7 @@ p .next-allow{
     
         text-align: center;
         padding: 0.2em 0.5em;
-        margin: 1em 0;
+        margin: 10% 0;
         font-size: 1.5em;
         width: 100%;
     
@@ -760,7 +760,7 @@ p .next-allow{
     }
 
     /* スマホ横向き */
-    @media screen and (max-height: 500px){
+    @media screen and (max-height: 415px){
         h1{
             padding-top: 35%;
             width: 50%;

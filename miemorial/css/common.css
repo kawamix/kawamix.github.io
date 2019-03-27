@@ -1,0 +1,805 @@
+@charset "UTF-8";
+@font-face{ 
+    font-family: 'mplus-2c-bold';
+    src: url('../fonts/rounded-mplus-2c-bold.ttf');
+}
+body, input{
+    font-family: "mplus-2c-bold", "Yu Gothic", "メイリオ", "Meiryo";
+}
+
+body{
+    background: #222;
+    margin: 0;
+}
+
+#loading{
+    position: fixed;
+    top: 0;
+    left: 0;
+    color: #FFFFFF;
+    background: #000000;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+
+    z-index: 200;
+    
+}
+
+.loading {
+    position: absolute;
+    display: block;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    width: 50px;
+    height: 50px;
+    margin: auto;
+    border: 5px solid #FFFFFF;
+    border-right: 5px solid transparent;
+    border-radius: 30px;
+    animation: loading 1s linear infinite;
+
+}
+  
+@keyframes loading {
+    0% {
+    }
+  
+    50% {
+      opacity: .6;
+    }
+  
+    100% {
+      transform: rotate(360deg);
+      transform-origin: 50% 50%;
+      opacity: .3;
+    }
+  }
+
+a{
+    text-decoration: none;
+    color: #FFFFFF;
+}
+
+#title{
+    position: absolute;
+    top:0;
+    left:0;
+    width: 100%;
+}
+
+#blackout{
+    position: fixed;
+    top: 0;
+    left:0;
+    width: 100%;
+    height: 100%;
+    background: #000000;
+    z-index: 100;
+}
+
+h1{
+    text-align: center;
+    display: block;
+    background: url("../img/logo.png") no-repeat;
+    background-size: contain;
+    margin: 0 auto;
+    overflow: hidden;
+    height: 0;
+}
+
+#game-start{
+    display: block;
+    color: #FFFFFF;
+    text-align: center;
+
+    text-shadow: 
+    #555555 3px 0px,  #555555 -3px 0px,
+    #555555 0px -3px, #555555 0px 3px,
+    #555555 3px 3px , #555555 -3px 3px,
+    #555555 3px -3px, #555555 -3px -3px,
+    #555555 1px 3px,  #555555 -1px 3px,
+    #555555 1px -3px, #555555 -1px -3px,
+    #555555 3px 1px,  #555555 -3px 1px,
+    #555555 3px -1px, #555555 -3px -1px;
+}
+
+#game_window{
+    cursor: pointer;
+    background-image: url("../img/home.jpg");
+}
+
+#name-display, #interaction{
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+#name-display p, #interaction p{
+    color: #FFFFFF;
+    text-align: center;
+    text-shadow: 
+    #555555 1.5px 0px,  #555555 -1.5px 0px,
+    #555555 0px -1.5px, #555555 0px 1.5px,
+    #555555 1.5px 1.5px , #555555 -1.5px 1.5px,
+    #555555 1.5px -1.5px, #555555 -1.5px -1.5px,
+    #555555 1px 1.5px,  #555555 -1px 1.5px,
+    #555555 1px -1.5px, #555555 -1px -1.5px,
+    #555555 1.5px 1px,  #555555 -1.5px 1px,
+    #555555 1.5px -1px, #555555 -1.5px -1px;
+}
+
+
+#name-display p span, #name-error, #modal-goodend p span, #interaction p span{
+    color: #FF99CC;
+    text-shadow: 
+    #222222 1.5px 0px,  #222222 -1.5px 0px,
+    #222222 0px -1.5px, #222222 0px 1.5px,
+    #222222 1.5px 1.5px , #222222 -1.5px 1.5px,
+    #222222 1.5px -1.5px, #222222 -1.5px -1.5px,
+    #222222 1px 1.5px,  #222222 -1px 1.5px,
+    #222222 1px -1.5px, #222222 -1px -1.5px,
+    #222222 1.5px 1px,  #222222 -1.5px 1px,
+    #222222 1.5px -1px, #222222 -1.5px -1px;
+}
+
+#name-error{
+    text-align: center;
+    margin: 0.5em 0;
+}
+
+#name-display input{
+    display: block;
+    padding: 0.5em;
+    border: #FF99CC solid 5px;
+    font-size: 1.5em;
+    width: 50%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.name-ok-button, .next-button{
+    display: block;
+    color: #FFFFFF;
+    background: #FF99CC;
+    border: #FFFFFF solid 5px;
+    padding: 0.5em;
+    font-size: 1.5em;
+    width: 25%;
+    margin: 0.5em auto;
+    text-align: center;
+}
+
+#option ul{
+    list-style: none;
+    position: absolute;
+    padding: 0;
+}
+
+#dialogue p{
+    min-height: 3em;
+}
+
+#modal-dialogue, #modal-overlay, #modal-overlay-white, #modal-badend, #modal-goodend{
+    position: fixed;
+    top:0;
+    left:0;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+}
+
+#modal-dialogue, #modal-overlay, #modal-badend{
+    background: rgba(0, 0, 0, 0.7);
+}
+
+#modal-goodend{
+    background: rgba(255, 255, 255, 0.7);
+}
+
+#modal-badend h2, #modal-badend p{
+    font-family: "Sawarabi Mincho";
+    font-weight: bold;
+    letter-spacing: 0.1em;
+    text-align: center;
+    color: #FFFFFF;
+    text-shadow: 
+    #000000 2px 0px,  #000000 -2px 0px,
+    #000000 0px -2px, #000000 0px 2px,
+    #000000 2px 2px , #000000 -2px 2px,
+    #000000 2px -2px, #000000 -2px -2px,
+    #000000 1px 2px,  #000000 -1px 2px,
+    #000000 1px -2px, #000000 -1px -2px,
+    #000000 2px 1px,  #000000 -2px 1px,
+    #000000 2px -1px, #000000 -2px -1px;
+}
+
+#modal-goodend h2, #modal-goodend p{
+    text-align: center;
+    color: #FFFFFF;
+    text-shadow: 
+    #555555 2px 0px,  #555555 -2px 0px,
+    #555555 0px -2px, #555555 0px 2px,
+    #555555 2px 2px , #555555 -2px 2px,
+    #555555 2px -2px, #555555 -2px -2px,
+    #555555 1px 2px,  #555555 -1px 2px,
+    #555555 1px -2px, #555555 -1px -2px,
+    #555555 2px 1px,  #555555 -2px 1px,
+    #555555 2px -1px, #555555 -2px -1px;
+}
+
+#modal-overlay-white{
+    background: rgba(255,255,255,0.7);   
+}
+
+#modal-dialogue p{
+    position: relative;
+
+    font-family: "Sawarabi Mincho";
+    font-weight: bold;
+    letter-spacing: 0.1em;
+    margin: 0 auto;
+    margin-top: 1em;
+    color: #fff;
+    text-shadow: 
+    #000000 2px 0px,  #000000 -2px 0px,
+    #000000 0px -2px, #000000 0px 2px,
+    #000000 2px 2px , #000000 -2px 2px,
+    #000000 2px -2px, #000000 -2px -2px,
+    #000000 1px 2px,  #000000 -1px 2px,
+    #000000 1px -2px, #000000 -1px -2px,
+    #000000 2px 1px,  #000000 -2px 1px,
+    #000000 2px -1px, #000000 -2px -1px;
+
+    font-size: 1.5em;
+    width: 700px;
+}
+
+p .next-allow{
+    display: inline-block;
+    height: 0px;
+    margin: 0;
+    overflow: hidden;
+    animation: next-allow 1s ease-out infinite;
+}
+
+@keyframes next-allow{
+    0% {
+    }
+    50% {
+        opacity: 0.1;
+    }
+    100% {
+        opacity: 1;
+    }
+
+}
+
+
+
+#dialogue p .next-allow{
+    background: url("../img/next_allow.png");
+    background-size: contain;
+}
+
+#modal-dialogue p .next-allow{
+    background: url("../img/next_allow02.png");
+    background-size: contain;
+}
+
+#supplement{
+    margin: 0 auto;
+    padding: 1.5em;
+    background: #fff;
+    color: #fff;
+    border: #BB9D6A solid 5px;
+    z-index: 11;
+}
+
+#supplement h2{
+    background: url("../img/light_bulb.png") no-repeat;
+    background-size: contain;
+}
+
+.close-button{
+    display: block;
+    background: #996600;
+    padding: 0.2em;
+    text-align: center;
+    margin: 0 auto;
+    border: #BB9D6A solid 5px;
+}
+
+.button{
+    text-align: center;
+}
+
+.button:hover{
+    border: #FF6699 solid 5px;
+    transition: 0.1s;
+}
+
+.silhouette, #speaker, #game_window{
+    transition: 0.2s;
+}
+
+#modal-badend h2, #modal-goodend h2{
+    margin: 0.3em;
+}
+
+#operate{
+    display: block;
+    width: 500px;
+    margin: 0.5em auto;
+}
+
+.share-twitter{
+    display: block;
+    background: #00acee;
+    border: #FFFFFF solid 5px;
+    color: #FFFFFF;
+
+    padding: 0.5em;
+    font-size: 2em;
+}
+
+#replay{
+    text-align: center;
+    margin: 1em 0;
+}
+
+.back-button{
+    display: inline-block;
+    background: #FF99CC;
+    border: #FFFFFF solid 5px;
+    color: #FFFFFF;
+    margin: 0.3em 0;
+
+    padding: 0.5em;
+    font-size: 1.5em;
+    width: 40%;
+}
+
+
+/* for PC */
+@media screen and (min-width: 769px) and (min-height: 400px){
+    #container{
+        width: 1280px;
+        margin: 0 auto;
+    }
+    
+    #game_window{
+        max-width: 100%;
+        min-height: 700px;
+        max-height: 800px;
+    }
+
+    h1{
+        padding-top: 500px;
+        width: 700px;
+    }
+
+    #game-start{
+        font-size: 3em;
+    }
+
+    #option{
+        margin: 0 auto;
+        width: 500px;
+    }
+    .option-button{
+        position: relative;
+        display: block;
+        background: #FFEEFF;
+        border: #FFCCFF solid 5px;
+    
+        text-align: center;
+        padding: 0.5em;
+        margin: 30px 0;
+        font-size: 2em;
+        width: 500px;
+    
+        z-index: 4;
+    }
+    .silhouette{
+        width: 400px;
+        margin: 0 auto;
+    }
+    
+    .silhouette span{
+        position: absolute;
+        background: url("../img/silhouette2.png") no-repeat;
+        background-size: contain;
+        padding-top: 700px;
+        width: 400px;
+        height: 0px;
+        overflow: hidden;
+        text-indent: 100%;
+        opacity: 0.8;
+        display:block;
+    }
+    
+    #dialogue{
+        position: relative;
+        width: 90%;
+        margin: 0 auto;
+        padding-top: 35%;
+    }
+    
+    #dialogue p{
+        display: block;
+        margin: 0 auto;
+        padding: 1em;
+        
+        background: rgba(255, 204, 255, 0.8);
+        border: #FFFFFF solid 5px;
+        border-radius: 0.2em;
+    
+        color: #FFFFFF;
+        font-size: 2em;
+        text-shadow: 
+        #555555 2px 0px,  #555555 -2px 0px,
+        #555555 0px -2px, #555555 0px 2px,
+        #555555 2px 2px , #555555 -2px 2px,
+        #555555 2px -2px, #555555 -2px -2px,
+        #555555 1px 2px,  #555555 -1px 2px,
+        #555555 1px -2px, #555555 -1px -2px,
+        #555555 2px 1px,  #555555 -2px 1px,
+        #555555 2px -1px, #555555 -2px -1px;
+    
+        z-index: 3;
+    }
+
+    #dialogue p .next-allow{
+        width: 36px;
+        padding-top: 1em;
+        margin-bottom: -5px;
+    }
+    #modal-dialogue p .next-allow{
+        width: 22px;
+        padding-top: 1em;
+        margin-bottom: -5px;
+    }
+    
+    #speaker{
+        display: block;
+        position: relative;
+        width: 20%;
+        padding: 0.2em;
+        text-align: center;
+    
+        background: #FFFFFF;
+        border-radius: 0.2em;
+    
+        color: #FFFFFF;
+        font-size: 2em;
+        text-shadow: 
+        #FF6699 3px 0px,  #FF6699 -3px 0px,
+        #FF6699 0px -3px, #FF6699 0px 3px,
+        #FF6699 3px 3px , #FF6699 -3px 3px,
+        #FF6699 3px -3px, #FF6699 -3px -3px,
+        #FF6699 1px 3px,  #FF6699 -1px 3px,
+        #FF6699 1px -3px, #FF6699 -1px -3px,
+        #FF6699 3px 1px,  #FF6699 -3px 1px,
+        #FF6699 3px -1px, #FF6699 -3px -1px;
+    
+        z-index: 1;
+    }
+
+    #supplement{
+        margin-top: 200px;
+        width: 500px;
+        height: 300px;
+    }
+
+    #supplement h2{
+        font-size: 2em;
+        padding-left: 100px;
+        text-shadow: 
+        #996600 2px 0px,  #996600 -2px 0px,
+        #996600 0px -2px, #996600 0px 2px,
+        #996600 2px 2px , #996600 -2px 2px,
+        #996600 2px -2px, #996600 -2px -2px,
+        #996600 1px 2px,  #996600 -1px 2px,
+        #996600 1px -2px, #996600 -1px -2px,
+        #996600 2px 1px,  #996600 -2px 1px,
+        #996600 2px -1px, #996600 -2px -1px;
+    }
+
+    #supplement p{
+        font-size: 1.5em;
+
+        text-shadow: 
+        #555555 1.5px 0px,  #555555 -1.5px 0px,
+        #555555 0px -1.5px, #555555 0px 1.5px,
+        #555555 1.5px 1.5px , #555555 -1.5px 1.5px,
+        #555555 1.5px -1.5px, #555555 -1.5px -1.5px,
+        #555555 1px 1.5px,  #555555 -1px 1.5px,
+        #555555 1px -1.5px, #555555 -1px -1.5px,
+        #555555 1.5px 1px,  #555555 -1.5px 1px,
+        #555555 1.5px -1px, #555555 -1.5px -1px;
+    }
+
+    #supplement .close-button{
+        font-size: 1.5em;
+        width: 100px;
+    }
+
+    #name-display p, #name-error, #interaction p{
+        font-size: 1.5em;
+    }
+
+    #modal-badend h2, #modal-goodend h2{
+        font-size: 3em;
+    }
+
+    #modal-badend p.reason, #modal-goodend p{
+        max-width: 600px;
+        margin: 0 auto;
+        font-size: 2em;
+    }
+
+    #modal-badend p.note{
+        font-size: 1.5em;
+    }
+
+}
+
+/* for smartphone */
+@media screen and (max-width: 768px), screen and (max-height: 400px){
+    #container{
+        width: 100%;
+        height: 100%;
+        margin: 0 auto;
+    }
+
+    #game_window{
+        width: auto;
+        height: 100%;
+        background-position: center bottom;
+    }
+
+    h1{
+        padding-top: 100%;
+        width: 100%;
+    }
+
+    #game-start{
+        font-size: 2.5em;
+    }
+
+
+    #option{
+        margin: 0 auto;
+        width: 90%;
+        position: relative;
+    }
+
+    #option ul{
+        position: absolute;
+        width: 90%;
+        margin-top: 25%;
+    }
+
+    .option-button{
+        position: relative;
+        display: block;
+        background: #FFEEFF;
+        border: #FFCCFF solid 5px;
+    
+        text-align: center;
+        padding: 0.2em 0.5em;
+        margin: 10% 0;
+        font-size: 1.5em;
+        width: 100%;
+    
+        z-index: 4;
+    }
+    .silhouette{
+        width: 100%;
+        max-width: 400px;
+        margin: 0 auto;
+    }
+    
+    .silhouette span{
+        
+        bottom: 0;
+        background: url("../img/silhouette2.png") no-repeat;
+        background-size: contain;
+        padding-top: 700px;
+        width: 100%;
+        height: 0px;
+        overflow: hidden;
+        text-indent: 100%;
+        opacity: 0.8;
+        display:block;
+    }
+    
+    #dialogue{
+        position: fixed;
+        width: 95%;
+        margin: 0 2.5%;
+        margin-bottom: 1em;
+        bottom: 0;
+    }
+    
+    #dialogue p{
+        display: block;
+        margin: 0 auto;
+        padding: 1em;
+        
+        background: rgba(255, 204, 255, 0.8);
+        border: #FFFFFF solid 5px;
+        border-radius: 0.2em;
+    
+        color: #FFFFFF;
+        font-size: 1.2em;
+        text-shadow: 
+        #555555 1.5px 0px,  #555555 -1.5px 0px,
+        #555555 0px -1.5px, #555555 0px 1.5px,
+        #555555 1.5px 1.5px , #555555 -1.5px 1.5px,
+        #555555 1.5px -1.5px, #555555 -1.5px -1.5px,
+        #555555 1px 1.5px,  #555555 -1px 1.5px,
+        #555555 1px -1.5px, #555555 -1px -1.5px,
+        #555555 1.5px 1px,  #555555 -1.5px 1px,
+        #555555 1.5px -1px, #555555 -1.5px -1px;
+    
+        z-index: 3;
+    }
+
+    #dialogue p .next-allow{
+        width: 22px;
+        padding-top: 1em;
+        margin-bottom: -0.1em;
+    }
+
+    #modal-dialogue p .next-allow{
+        width: 17px;
+        padding-top: 1em;
+        margin-bottom: -0.1em;
+    }
+    
+    #speaker{
+        display: block;
+        position: relative;
+        min-width: 150px;
+        width: 30%;
+        padding: 0.2em;
+        text-align: center;
+    
+        background: #FFFFFF;
+        border-radius: 0.2em;
+    
+        color: #FFFFFF;
+        font-size: 1.2em;
+        text-shadow: 
+        #FF6699 3px 0px,  #FF6699 -3px 0px,
+        #FF6699 0px -3px, #FF6699 0px 3px,
+        #FF6699 3px 3px , #FF6699 -3px 3px,
+        #FF6699 3px -3px, #FF6699 -3px -3px,
+        #FF6699 1px 3px,  #FF6699 -1px 3px,
+        #FF6699 1px -3px, #FF6699 -1px -3px,
+        #FF6699 3px 1px,  #FF6699 -3px 1px,
+        #FF6699 3px -1px, #FF6699 -3px -1px;
+    
+        z-index: 1;
+    }
+
+    #modal-dialogue p{
+        font-size: 1.2em;
+        width: 95%;
+        margin-top: 25%;
+    }
+
+    #supplement{
+        margin-top: 50%;
+        width: 80%;
+        max-height: 100%;
+    }
+
+    #supplement h2{
+        font-size: 1.2em;
+        padding-left: 3.5em;
+        text-shadow: 
+        #996600 2px 0px,  #996600 -2px 0px,
+        #996600 0px -2px, #996600 0px 2px,
+        #996600 2px 2px , #996600 -2px 2px,
+        #996600 2px -2px, #996600 -2px -2px,
+        #996600 1px 2px,  #996600 -1px 2px,
+        #996600 1px -2px, #996600 -1px -2px,
+        #996600 2px 1px,  #996600 -2px 1px,
+        #996600 2px -1px, #996600 -2px -1px;
+    }
+
+    #supplement p{
+        font-size: 1em;
+
+        text-shadow: 
+        #555555 1.5px 0px,  #555555 -1.5px 0px,
+        #555555 0px -1.5px, #555555 0px 1.5px,
+        #555555 1.5px 1.5px , #555555 -1.5px 1.5px,
+        #555555 1.5px -1.5px, #555555 -1.5px -1.5px,
+        #555555 1px 1.5px,  #555555 -1px 1.5px,
+        #555555 1px -1.5px, #555555 -1px -1.5px,
+        #555555 1.5px 1px,  #555555 -1.5px 1px,
+        #555555 1.5px -1px, #555555 -1.5px -1px;
+    }
+    #supplement .close-button{
+        font-size: 1.2em;
+        width: 6em;
+    }
+
+    #name-display p, #name-error, #interaction p{
+        font-size: 1.2em;
+    }
+
+    #modal-badend h2, #modal-goodend h2{
+        font-size: 2.5em;
+    }
+
+    #modal-badend p, #modal-goodend p{
+        width: 90%;
+        margin: 0 auto;
+    }
+
+    #modal-badend p.reason, #modal-goodend p{
+        font-size: 1.5em;
+    }
+
+    #modal-badend p.note{
+        font-size: 1.2em;
+    }
+
+    #operate{
+        width: 95%;
+    }
+
+    .share-twitter{
+        font-size: 1.5em;
+    }
+
+    /* スマホ横向き */
+    @media screen and (max-height: 500px){
+        h1{
+            padding-top: 35%;
+            width: 50%;
+        }
+        #modal-dialogue p{
+            margin-top: 0;
+        }
+
+        #option ul{
+            margin-top: 0;
+        }
+
+        #option ul li{
+            margin: 2% 0;
+        }
+
+        #supplement{
+            margin-top: 10%;
+        }
+
+        #modal-badend h2{
+            font-size: 2em;
+        }
+        .share-twitter{
+            padding: 0.2em;
+            font-size: 1.5em;
+        }
+        #replay{
+            margin: 0.5em 0;
+        }
+    }
+}
+
+/* 初期状態 */
+
+/*#blackout, #option, #dialogue, #modal-overlay-white, #modal-dialogue, #modal-overlay, #name-error, #modal-badend, #modal-goodend{
+    display: none;
+}*/
+
+#speaker, .silhouette{
+    opacity: 0;
+}

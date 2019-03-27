@@ -562,7 +562,7 @@ p .next-allow{
 
     h1{
         padding-top: 100%;
-        width: 100%;
+        max-width: 90%;
     }
 
     #game-start{

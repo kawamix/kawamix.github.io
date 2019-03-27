@@ -63,13 +63,6 @@ a{
     color: #FFFFFF;
 }
 
-#title{
-    position: absolute;
-    top:0;
-    left:0;
-    width: 100%;
-}
-
 #blackout{
     position: fixed;
     top: 0;
@@ -373,6 +366,13 @@ p .next-allow{
         max-width: 100%;
         min-height: 700px;
         max-height: 800px;
+    }
+
+    #title{
+        position: absolute;
+        top:0;
+        left:0;
+        width: 100%;
     }
 
     h1{

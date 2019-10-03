@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <title>ピーナッツハザード ハロウィン</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta property="og:title" content="ピーナッツハザード ハロウィン" />
+    <meta property="og:image" content="https://kawamix.github.io/peahazard/img/twitter_card.png" />
+    <meta property="og:description" content="ハロウィンにピーナッツくんがゾンビになっちゃった！？チャンチョを操作してかぼちゃやアメをゲットしていこう！"
+    />
+    <meta property="og:url" content="https://kawamix.github.io/peahazard/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="kawamix.github.io" />
+    <meta property="twitter:title" content="ピーナッツハザード ハロウィン" />
+    <meta property="twitter:image" content="https://kawamix.github.io/peahazard/img/twitter_card.png" />
+
+    <meta property="twitter:description" content="ハロウィンにピーナッツくんがゾンビになっちゃった！？チャンチョを操作してかぼちゃやアメをゲットしていこう！"
+    />
+    <meta property="twitter:url" content="http://kawamix.github.io/peahazard/" />
+
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:domain" content="http://kawamix.github.io/" />
+    <meta property="twitter:site" content="@kawamix02" />
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div id="game-player">
+        <div id="select-difficulty">
+            <ul class="flex">
+                <li class="normal">NORMAL</li>
+                <li class="hard">VERY HARD</li>
+            </ul>
+        </div>
+        <div id="modal-gameover">
+            <h2>GAME OVER</h2>
+            <p id="result">SCORE:
+                <span class="result-score">3500</span>
+            </p>
+            <a href="https://twitter.com" target="_blank">けっかをツイート</a>
+            <div class="button">もういちどあそぶ</div>
+        </div>
+        <div id="info">
+            <div id="state"></div>
+            <div id="stamina-wrapper">
+                <div id="stamina"></div>
+            </div>
+            <div class="flex">
+                <div id="ballet"></div>
+                <div id="score"></div>
+            </div>
+
+        </div>
+        <canvas id="maincanvas" width="1000" , height="563"></canvas>
+    </div>
+    <div id="player"></div>
+    <script src="./jquery-3.3.1.min.js"></script>
+    <script src="./howler.js"></script>
+    <script src="./script.min.js"></script>
+
+</body>
+
+</html>

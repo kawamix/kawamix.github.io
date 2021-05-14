@@ -1,0 +1,3 @@
+[submodule "gachikoilang"]
+	path = gachikoilang
+	url = https://github.com/kawamix/gachikoilang.git
